@@ -2,6 +2,8 @@
   "version": 2,
   "projects": {
     "futbol-pro": "apps/futbol-pro",
-    "futbol-pro-e2e": "apps/futbol-pro-e2e"
+    "futbol-pro-e2e": "apps/futbol-pro-e2e",
+    "types": "libs/types",
+    "ui": "libs/ui"
   }
 }
