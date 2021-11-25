@@ -17,22 +17,24 @@ export function Countries(props: IndexProps) {
           ?
           countries.map(({ code, name, flag }) =>
             <>
-              <li key={code}>
-                <span>
-                  {flag !== null &&
-                    <Image
-                      alt={'Bandera de ' + name}
-                      width={100}
-                      height={100}
-                      loader={() => flag}
-                      src={flag}
-                    />
-                  }
-                </span>
-                <span>
-                  {code} - {name}
-                </span>
-              </li>
+              <Link href="/teams/[name]" as={`/teams/${name}`}>
+                <li key={code}>
+                  <span>
+                    {flag !== null &&
+                      <Image
+                        alt={'Bandera de ' + name}
+                        width={100}
+                        height={100}
+                        loader={() => flag}
+                        src={flag}
+                      />
+                    }
+                  </span>
+                  <span>
+                    {code} - {name}
+                  </span>
+                </li>
+              </Link>
             </>
           )
           :
