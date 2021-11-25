@@ -3,48 +3,47 @@ import Image from 'next/dist/client/image';
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import styled from 'styled-components';
-import useTeams from '../../hooks/useTeams';
+import usePlayers from '../../hooks/usePlayers';
 
 const StyledPage = styled.div`
   .page {
   }
 `;
 
-export function Teams() {
+export function Players() {
     const router = useRouter()
-    const { name } = router.query
-    const [teams, setContry] = useTeams()
+    const { id } = router.query
+    const [players, team, setTeamId] = usePlayers()
 
     useEffect(() => {
-        setContry(name)
+        setTeamId(id)
     })
 
     return (
         <StyledPage>
-            <h1>Teams</h1>
+            <h1>Players of {team?.name}</h1>
             {
-                teams && teams.length > 0
+                players && players.length > 0
                     ?
-                    teams.map(({ team }) =>
+                    players.map(({ name, photo, id }) =>
                         <>
-                            <Link href="/players/[id]" as={`/players/${team.id}`}>
-                                <li key={team.id}>
+                            
+                                <li key={id}>
                                     <span>
-                                        {team.flag !== null &&
+                                        {photo !== null &&
                                             <Image
-                                                alt={'Bandera de ' + team.name}
+                                                alt={'photo player' + name}
                                                 width={100}
                                                 height={100}
-                                                loader={() => team.logo}
-                                                src={team.logo}
+                                                loader={() => photo}
+                                                src={photo}
                                             />
                                         }
                                     </span>
                                     <span>
-                                        {team.name}
+                                        {name}
                                     </span>
                                 </li>
-                            </Link>
                         </>
                     )
                     :
@@ -54,4 +53,4 @@ export function Teams() {
     );
 }
 
-export default Teams;
+export default Players;

@@ -1,4 +1,4 @@
 import { _get } from './_http'
-export const _teamsService = async (team: string) => {
-    return await _get(`/squads?team=${team}`)
+export const _playersService = async (team: string) => {
+    return await _get(`/players/squads?team=${team}`)
 }
