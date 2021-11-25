@@ -1,5 +1,6 @@
+import Image from 'next/image'
+import Link from 'next/Link';
 import styled from 'styled-components';
-import { useCountries } from '../useCountries';
 import { IndexProps } from '@futbol-pro/types';
 
 const StyledCountries = styled.div`
@@ -7,16 +8,33 @@ const StyledCountries = styled.div`
 `;
 
 export function Countries(props: IndexProps) {
-  const [countriesArray] = useCountries();
-  const countries = props.countries ? props.countries : countriesArray;
-
+  const { countries } = props
   return (
     <StyledCountries>
       <h1>Countries</h1>
       {
         countries && countries.length > 0
           ?
-          countries.map(({ code, name }) => <li key={code}>{code} - {name}</li>)
+          countries.map(({ code, name, flag }) =>
+            <>
+              <li key={code}>
+                <span>
+                  {flag !== null &&
+                    <Image
+                      alt={'Bandera de ' + name}
+                      width={100}
+                      height={100}
+                      loader={() => flag}
+                      src={flag}
+                    />
+                  }
+                </span>
+                <span>
+                  {code} - {name}
+                </span>
+              </li>
+            </>
+          )
           :
           <p>no data</p>
       }
