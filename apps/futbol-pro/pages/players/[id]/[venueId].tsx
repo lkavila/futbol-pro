@@ -5,7 +5,7 @@ import { useRouter } from 'next/router'
 import styled from 'styled-components';
 import useVenue from '../../../hooks/useVenue';
 import usePlayers from '../../../hooks/usePlayers';
-import { StadiumCard, PlayerCard } from '@futbol-pro/ui'
+import { StadiumCard, PlayerCard, Ui} from '@futbol-pro/ui'
 
 const StyledPlayers = styled.div`
   justify-content: space-around;
@@ -38,7 +38,7 @@ export function Players() {
       {
         venue && <StadiumCard {...venue} />
       }
-      <h1>Players of {team?.name}</h1>
+      <Ui playerName={`Players of ${team?.name}:`} playerAge={players?.length} />
       <StyledPlayers>
 
         {

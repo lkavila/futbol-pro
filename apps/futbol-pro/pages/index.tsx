@@ -36,8 +36,7 @@ export function Index() {
   },]*/
   return (
     <StyledPage>
-      <Ui playerName="List of countries" playerAge={32} />
-      <Link href="/about">About</Link>
+      <Ui playerName="List of countries" playerAge={countries?.length} />
       <Countries countries={countries} />
     </StyledPage>
   );

@@ -5,14 +5,14 @@ import styled from 'styled-components';
 
 
 const StyledUi = styled.div`
-  color: pink;
+  color: #143055;
 `;
 
 export function Ui(props: UiProps) {
-  const { playerName } = props
+  const { playerName , playerAge} = props
   return (
     <StyledUi>
-      <h1>{playerName}</h1>
+      <h1>{playerName} {playerAge}</h1>
     </StyledUi>
   );
 }
