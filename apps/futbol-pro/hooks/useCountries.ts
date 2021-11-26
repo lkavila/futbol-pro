@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react"
 import { _countriesService } from '../services/_countriesService'
+import { Country } from "@futbol-pro/types";
 
 export const useCountries = () => {
-  const [countries, setCountries] = useState([]);
+  const [countries, setCountries] = useState<Array<Country>>([]);
   useEffect(() => {
     _countriesService()
       .then((data) => data.json())

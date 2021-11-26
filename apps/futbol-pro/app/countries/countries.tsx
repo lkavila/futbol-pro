@@ -1,41 +1,31 @@
-import Image from 'next/image'
-import Link from 'next/Link';
+import { CountryCard } from '@futbol-pro/ui'
 import styled from 'styled-components';
 import { IndexProps } from '@futbol-pro/types';
 
 const StyledCountries = styled.div`
-  color: blue;
+  justify-content: space-around;
+  row-gap: 30px;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
 `;
+
+const CardContainer = styled.div`
+  width: 200px;
+  margin: 20px;
+`;
+
 
 export function Countries(props: IndexProps) {
   const { countries } = props
   return (
     <StyledCountries>
-      <h1>Countries</h1>
       {
         countries && countries.length > 0
           ?
           countries.map(({ code, name, flag }) =>
-            <>
-              <Link href="/teams/[name]" as={`/teams/${name}`}>
-                <li key={code}>
-                  <span>
-                    {flag !== null &&
-                      <Image
-                        alt={'Bandera de ' + name}
-                        width={100}
-                        height={100}
-                        loader={() => flag}
-                        src={flag}
-                      />
-                    }
-                  </span>
-                  <span>
-                    {code} - {name}
-                  </span>
-                </li>
-              </Link>
-            </>
+            <CardContainer key={name + code}>
+              <CountryCard name={name} code={code} flag={flag} />
+            </CardContainer>
           )
           :
           <p>no data</p>
