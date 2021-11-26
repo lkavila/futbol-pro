@@ -11,10 +11,33 @@ const StyledPage = styled.div`
 
 export function Index() {
   const [countries] = useCountries();
+  /*const countries = [{
+    'name': "Polombia",
+    'code': 'PO',
+    'flag': 'https://media.api-sports.io/flags/co.svg'
+  },
+  {
+    'name': "Polombia",
+    'code': 'PO',
+    'flag': 'https://media.api-sports.io/flags/co.svg'
+  }, {
+    'name': "Polombia",
+    'code': 'PO',
+    'flag': 'https://media.api-sports.io/flags/co.svg'
+  }, {
+    'name': "Polombia",
+    'code': 'PO',
+    'flag': 'https://media.api-sports.io/flags/co.svg'
+  },
+  {
+    'name': "Polombia",
+    'code': 'PO',
+    'flag': 'https://media.api-sports.io/flags/co.svg'
+  },]*/
   return (
     <StyledPage>
       <Ui playerName="List of countries" playerAge={32} />
-      <Link href="about">About</Link>
+      <Link href="/about">About</Link>
       <Countries countries={countries} />
     </StyledPage>
   );
