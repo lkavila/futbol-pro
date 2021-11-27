@@ -1,26 +1,35 @@
 version: 2.1
+
 orbs:
-  aws-s3: circleci/aws-s3@2.0
+  heroku: circleci/heroku@1.2
+
 jobs:
-  deploy-s3:
+  test:
     docker:
-      - image: 'circleci/node:14.18.1-browsers'
+      - image: circleci/node
     steps:
       - checkout
       - run:
-          command: npm install
-          name: Install dependencies
-      - run:
-          command: node_modules/.bin/nx build
-          name: Make build
-      - aws-s3/sync:
-          arguments: |
-            --acl public read \
-            --cache control "max-age=86400"
-          from: dist
-          to: "s3://ci-cd-futbol-pro/"
+          name: Testing app
+          command: npm ci && npm run test
+
+  build:
+    docker:
+      - image: circleci/node
+    steps:
+      - checkout
+      - run: npm install && NODE_OPTIONS=--openssl-legacy-provider npm run build
+
 workflows:
-  build-deploy: # This is the name of the workflow, feel free to change it to better match your workflow.
-    # Inside the workflow, you define the jobs you want to run.
+  test-build-deploy:
     jobs:
-      - deploy-s3
+      - test
+      - build:
+          requires:
+            - test
+      - heroku/deploy-via-git:
+          requires:
+            - build
+          filters:
+            branches:
+              only: main
