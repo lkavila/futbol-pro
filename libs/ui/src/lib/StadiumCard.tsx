@@ -61,7 +61,7 @@ export const WrapperHover = styled.div`
 export function StadiumCard(props: Venue) {
   const { name, image, address, capacity, city } = props
   return (
-
+    <div id='StadiumCard'>
       <ABox>
         <TextContainerGeneral>
           <ImgContainerGeneral>
@@ -83,6 +83,7 @@ export function StadiumCard(props: Venue) {
           </TextContainerBody>
         </TextContainerGeneral>
       </ABox>
+    </div>
   )
 }
 

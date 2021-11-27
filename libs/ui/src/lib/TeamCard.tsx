@@ -7,8 +7,8 @@ export function TeamCard(props: Teams) {
   const { name, id, logo } = props.team
   const { id: venueId } = props.venue
   return (
+    <div id='TeamCard'>
     <Link href="/players/[id]/[venue]" as={`/players/${id}/${venueId}`}>
-
       <WrapperHover>
         <ABox>
           <ImgContainerGeneral>
@@ -33,7 +33,7 @@ export function TeamCard(props: Teams) {
 
       </WrapperHover>
     </Link>
-
+    </div>
   )
 }
 
