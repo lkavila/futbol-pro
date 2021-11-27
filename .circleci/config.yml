@@ -4,7 +4,7 @@ orbs:
 jobs:
   deploy-s3:
     docker:
-      - image: 'circleci/node:16.11.1-browsers'
+      - image: 'circleci/node:14.18.1-browsers'
     steps:
       - checkout
       - run:
