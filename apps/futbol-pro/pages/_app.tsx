@@ -7,11 +7,12 @@ function CustomApp({ Component, pageProps }: AppProps) {
     <>
       <Head>
         <title>Welcome to futbol-pro!</title>
+        <link rel="shortcut icon" href="/soccer-ball.png"></link>
       </Head>
       <div className="app">
         <header className="flex">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/nx-logo-white.svg" alt="Nx logo" width="75" height="50" />
+          <img src="/soccer-ball.png" alt="Nx logo" width="55" height="50" />
           <h1>Welcome to futbol-pro!</h1>
         </header>
         <main>

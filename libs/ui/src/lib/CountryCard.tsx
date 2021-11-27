@@ -19,6 +19,7 @@ export function CountryCard(props: Country) {
                   alt={'Bandera de ' + name}
                   width={120}
                   height={120}
+                  loader={() => flag}
                   src={flag}
                 />
               }
