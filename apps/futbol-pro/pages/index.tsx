@@ -36,7 +36,9 @@ export function Index() {
   },]*/
   return (
     <StyledPage>
+      <div id='tituloPaises' >
       <Ui playerName="List of countries" playerAge={countries?.length} />
+      </div>
       <Countries countries={countries} />
     </StyledPage>
   );
