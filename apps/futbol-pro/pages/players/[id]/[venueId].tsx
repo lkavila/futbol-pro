@@ -1,11 +1,11 @@
-import Link from 'next/Link';
-import Image from 'next/dist/client/image';
-import { useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import styled from 'styled-components';
 import useVenue from '../../../hooks/useVenue';
 import usePlayers from '../../../hooks/usePlayers';
-import { StadiumCard, PlayerCard, Ui} from '@futbol-pro/ui'
+import { Ui } from '@futbol-pro/ui'
+import StadiumCard from '../../../app/StadiumCard'
+import PlayerCard from '../../../app/PlayerCard'
 
 const StyledPlayers = styled.div`
   justify-content: space-around;
@@ -33,8 +33,6 @@ export function Players() {
 
   return (
     <div className="players-page">
-
-
       {
         venue && <StadiumCard {...venue} />
       }

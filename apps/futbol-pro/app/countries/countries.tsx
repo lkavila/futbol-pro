@@ -1,4 +1,4 @@
-import { CountryCard } from '@futbol-pro/ui'
+import { CountryCard } from '../CountryCard'
 import styled from 'styled-components';
 import { IndexProps } from '@futbol-pro/types';
 

@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { Player } from '@futbol-pro/types';
 import Image from 'next/image'
 

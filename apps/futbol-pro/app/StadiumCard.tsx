@@ -1,5 +1,5 @@
-import { Venue } from '@futbol-pro/types';
-import Image from 'next/image'
+/* eslint-disable @next/next/no-img-element */
+import { Venue } from '../../../libs/types/src';
 import styled from 'styled-components'
 
 export const ABox = styled.div`
@@ -66,11 +66,10 @@ export function StadiumCard(props: Venue) {
         <TextContainerGeneral>
           <ImgContainerGeneral>
             {image &&
-              <Image
+              <img
                 alt={'Bandera de ' + name}
                 width={300}
                 height={200}
-                loader={() => image}
                 src={image}
               />
             }

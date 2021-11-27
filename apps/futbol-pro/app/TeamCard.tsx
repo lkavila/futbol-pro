@@ -1,7 +1,7 @@
+/* eslint-disable @next/next/no-img-element */
 import { Teams } from '@futbol-pro/types';
-import Image from 'next/image'
 import Link from 'next/Link';
-import { ABox, WrapperHover, ImgContainerGeneral, InnerSkew, TextContainerGeneral, TextContainer } from './CardStyles';
+import { ABox, WrapperHover, ImgContainerGeneral, InnerSkew, TextContainerGeneral, TextContainer } from '@futbol-pro/ui';
 
 export function TeamCard(props: Teams) {
   const { name, id, logo } = props.team
@@ -15,11 +15,10 @@ export function TeamCard(props: Teams) {
 
             <InnerSkew>
               {logo &&
-                <Image
+                <img
                   alt={'Bandera de ' + name}
                   width={100}
                   height={100}
-                  loader={() => logo}
                   src={logo}
                 />
               }
