@@ -1,0 +1,22 @@
+version: 2.1
+orbs:
+  aws-s3: circleci/aws-s3@2.0
+  nx: nrwl/nx@1.1.2
+jobs:
+  deploy-s3:
+    docker:
+      - image: 'circleci/node:16.11.1-browsers'
+    steps:
+      - checkout
+      - run: npm run install && nx build futbol-pro --prod
+      - aws-s3/sync:
+          arguments: |
+            --acl public read \
+            --cache control "max-age=86400"
+          from: dist
+          to: "s3://ci-cd-futbol-pro/"
+workflows:
+  build-deploy: # This is the name of the workflow, feel free to change it to better match your workflow.
+    # Inside the workflow, you define the jobs you want to run.
+    jobs:
+      - deploy-s3
