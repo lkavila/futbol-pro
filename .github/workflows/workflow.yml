@@ -1,0 +1,31 @@
+name: Upload Website
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Use Node.js 16.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16.x
+      - name: npm install
+        run: npm install && npm install next-compose-plugins && npm install next-images
+      - name: nx build
+        run: node_modules/.bin/nx build
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-2
+
+      - name: Deploy static site to S3 bucket
+        run: aws s3 sync ./dist/apps/futbol-pro/.next s3://ci-cd-futbol --delete

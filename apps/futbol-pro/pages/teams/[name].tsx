@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import styled from 'styled-components';
 import useTeams from '../../hooks/useTeams';
-import { TeamCard } from '@futbol-pro/ui'
+import { TeamCard, Ui } from '@futbol-pro/ui'
 
 const StyledPage = styled.div`
   .page {
@@ -34,7 +34,7 @@ export function Teams() {
   return (
     <>
 
-      <h1>Teams</h1>
+      <Ui playerName="List of Teams" playerAge={teams?.length} />
       <StyledCountries>
         {
           teams && teams.length > 0 && teams instanceof Array

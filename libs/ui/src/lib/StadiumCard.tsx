@@ -3,9 +3,17 @@ import Image from 'next/image'
 import styled from 'styled-components'
 
 export const ABox = styled.div`
-  justify-content: center;
+  display:flex;
+  align-items:center;
+  justify-content:center;
   width: fit-content;
   text-align: center;
+  background:#143055;
+  width:100%;
+  height:20rem;
+  background-image: url("/ball.png");
+  background-repeat: repeat;
+  background-position: 30px;
   `
 
 export const ImgContainerGeneral = styled.div`
@@ -24,12 +32,18 @@ export const TextContainerGeneral = styled.div`
   background:  #ffff;
   line-height: 19px;
   font-size: 14px;
+  display:flex;
+`
+
+export const TextContainerBody = styled.div`
+  padding:2rem;
 `
 
 export const TextContainer = styled.h3`
   margin: 20px 0px 10px 0px;
   color: #00294b;
   font-size: 18px;
+  text-align: left;
   `
 
 export const StyledContainer = styled.div`
@@ -39,7 +53,6 @@ export const StyledContainer = styled.div`
 `
 
 export const WrapperHover = styled.div`
-
   &:hover ${TextContainerGeneral} {
     box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.1);
   }
@@ -49,30 +62,27 @@ export function StadiumCard(props: Venue) {
   const { name, image, address, capacity, city } = props
   return (
 
-    <WrapperHover>
       <ABox>
-
         <TextContainerGeneral>
-          <TextContainer>{"Estadio: " + name}</TextContainer>
           <ImgContainerGeneral>
             {image &&
               <Image
                 alt={'Bandera de ' + name}
-                width={280}
+                width={300}
                 height={200}
                 loader={() => image}
                 src={image}
               />
             }
           </ImgContainerGeneral>
-          <TextContainer>{"Ubicación: " + city}</TextContainer>
-          <TextContainer>{"Dirección: " + address}</TextContainer>
-          <TextContainer>{"Capacidad: " + capacity + " espectadores"}</TextContainer>
+          <TextContainerBody>
+            <TextContainer>{"Estadio: " + name}</TextContainer>
+            <TextContainer>{"Ubicación: " + city}</TextContainer>
+            <TextContainer>{"Dirección: " + address}</TextContainer>
+            <TextContainer>{"Capacidad: " + capacity + " espectadores"}</TextContainer>
+          </TextContainerBody>
         </TextContainerGeneral>
       </ABox>
-
-    </WrapperHover>
-
   )
 }
 
