@@ -1,7 +1,6 @@
 version: 2.1
 orbs:
   aws-s3: circleci/aws-s3@2.0
-  nx: nrwl/nx@1.1.2
 jobs:
   deploy-s3:
     docker:
@@ -9,7 +8,6 @@ jobs:
     steps:
       - checkout
       - run: npm install && node_modules/.bin/nx build
-      - nx/set-shas
       - aws-s3/sync:
           arguments: |
             --acl public read \
