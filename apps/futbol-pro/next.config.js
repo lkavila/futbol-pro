@@ -1,7 +1,6 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const withNx = require('@nrwl/next/plugins/with-nx');
 
-const withPlugins = require('next-compose-plugins')
 const withImages = require('next-images')
 
 /**
@@ -20,4 +19,4 @@ const nextConfig = {
 
 
 
-module.exports = withPlugins([[withImages]], nextConfig)
+module.exports = withNx([[withImages]], nextConfig)

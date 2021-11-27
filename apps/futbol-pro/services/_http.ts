@@ -1,12 +1,11 @@
 const endpoint = "https://v3.football.api-sports.io"
-const apikey = '97c029e5e159b72655f3d1795cfde225'
-console.log(apikey)
+const apiKey = 'bd0397a068387ba720950752acc2de02'
 export const _get = async (ruta: string) => {
   return await fetch(endpoint + ruta, {
     "method": "GET",
     "headers": {
       "x-rapidapi-host": "v3.football.api-sports.io",
-      'x-apisports-key': apikey
+      'x-apisports-key': apiKey
     }
   })
 }
