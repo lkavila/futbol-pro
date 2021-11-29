@@ -6,7 +6,7 @@
     "start": "nx serve",
     "build": "nx build",
     "test": "nx test",
-    "testcafe": "testcafe chrome apps/futbol-pro/specs/*ts"
+    "testcafe": "npx testcafe chrome apps/futbol-pro/specs/*ts"
   },
   "private": true,
   "dependencies": {
