@@ -1,4 +1,3 @@
-import Link from 'next/Link';
 import styled from 'styled-components';
 import { Ui } from '@futbol-pro/ui';
 import Countries from '../app/countries/countries';
@@ -11,29 +10,7 @@ const StyledPage = styled.div`
 
 export function Index() {
   const [countries] = useCountries();
-  /*const countries = [{
-    'name': "Polombia",
-    'code': 'PO',
-    'flag': 'https://media.api-sports.io/flags/co.svg'
-  },
-  {
-    'name': "Polombia",
-    'code': 'PO',
-    'flag': 'https://media.api-sports.io/flags/co.svg'
-  }, {
-    'name': "Polombia",
-    'code': 'PO',
-    'flag': 'https://media.api-sports.io/flags/co.svg'
-  }, {
-    'name': "Polombia",
-    'code': 'PO',
-    'flag': 'https://media.api-sports.io/flags/co.svg'
-  },
-  {
-    'name': "Polombia",
-    'code': 'PO',
-    'flag': 'https://media.api-sports.io/flags/co.svg'
-  },]*/
+
   return (
     <StyledPage>
       <div id='tituloPaises' >

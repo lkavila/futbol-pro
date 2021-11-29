@@ -1,6 +1,6 @@
 import { Country } from '@futbol-pro/types';
 import Image from 'next/image'
-import Link from 'next/Link';
+import Link from 'next/link';
 import { ABox, WrapperHover, ImgContainerGeneral, InnerSkew, TextContainerGeneral, TextContainer } from './CardStyles';
 
 export function CountryCard(props: Country) {
