@@ -6,34 +6,32 @@ import { ABox, WrapperHover, ImgContainerGeneral, InnerSkew, TextContainerGenera
 export function CountryCard(props: Country) {
   const { name, code, flag } = props
   return (
+    <div id='CountryCard'>
+      <Link key={code} href="/teams/[name]" as={`/teams/${name}`}>
+        <WrapperHover>
+          <ABox>
+            <ImgContainerGeneral>
 
-    <Link key={code} href="/teams/[name]" as={`/teams/${name}`}>
+              <InnerSkew>
+                {flag !== null &&
+                  <Image
+                    alt={'Bandera de ' + name}
+                    width={120}
+                    height={120}
+                    loader={() => flag}
+                    src={flag}
+                  />
+                }
+              </InnerSkew>
 
-      <WrapperHover>
-        <ABox>
-          <ImgContainerGeneral>
-
-            <InnerSkew>
-              {flag !== null &&
-                <Image
-                  alt={'Bandera de ' + name}
-                  width={120}
-                  height={120}
-                  loader={() => flag}
-                  src={flag}
-                />
-              }
-            </InnerSkew>
-
-          </ImgContainerGeneral>
-          <TextContainerGeneral>
-            <TextContainer>{name}</TextContainer>
-          </TextContainerGeneral>
-        </ABox>
-
-      </WrapperHover>
-    </Link>
-
+            </ImgContainerGeneral>
+            <TextContainerGeneral>
+              <TextContainer>{name}</TextContainer>
+            </TextContainerGeneral>
+          </ABox>
+        </WrapperHover>
+      </Link>
+    </div>
   )
 }
 

@@ -6,7 +6,7 @@ export function PlayerCard(props: Player) {
   const { name, photo, position, age } = props
   return (
 
-    <div className="fut-player-card">
+    <div  id='PlayerCard' className="fut-player-card">
       <div className="player-card-top">
         <div className="player-master-info">
           <div className="player-rating">

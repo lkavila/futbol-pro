@@ -12,7 +12,7 @@ export function Ui(props: UiProps) {
   const { playerName , playerAge} = props
   return (
     <StyledUi>
-      <h1>{playerName} {playerAge}</h1>
+      <h1 id='Titulocabera'>{playerName} {playerAge}</h1>
     </StyledUi>
   );
 }

@@ -1,5 +1,4 @@
 import { Venue } from '@futbol-pro/types';
-import Image from 'next/image'
 import styled from 'styled-components'
 
 export const ABox = styled.div`
@@ -61,16 +60,15 @@ export const WrapperHover = styled.div`
 export function StadiumCard(props: Venue) {
   const { name, image, address, capacity, city } = props
   return (
-
+    <div id='StadiumCard'>
       <ABox>
         <TextContainerGeneral>
           <ImgContainerGeneral>
             {image &&
-              <Image
+              <img
                 alt={'Bandera de ' + name}
                 width={300}
                 height={200}
-                loader={() => image}
                 src={image}
               />
             }
@@ -83,6 +81,7 @@ export function StadiumCard(props: Venue) {
           </TextContainerBody>
         </TextContainerGeneral>
       </ABox>
+    </div>
   )
 }
 
